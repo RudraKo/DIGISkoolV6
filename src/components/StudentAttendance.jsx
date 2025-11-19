@@ -38,7 +38,7 @@ import {
 } from '@mui/icons-material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 
 // Sample student data with provided names
 const initialStudents = [
@@ -308,7 +308,12 @@ const StudentAttendance = () => {
               label="Select Date"
               value={selectedDate}
               onChange={(newDate) => setSelectedDate(newDate)}
-              renderInput={(params) => <TextField {...params} />}
+              slotProps={{
+                textField: {
+                  fullWidth: true,
+                  variant: 'outlined'
+                }
+              }}
             />
           </Box>
 

@@ -34,6 +34,11 @@ const Navigation = () => {
   const navigate = useNavigate();
   const userRole = localStorage.getItem('role');
 
+  // Don't render navigation if not logged in
+  if (!localStorage.getItem('token')) {
+    return null;
+  }
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
